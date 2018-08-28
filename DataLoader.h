@@ -7,17 +7,18 @@
 
 #include <boost/filesystem.hpp>
 #include <fstream>
+#include <sstream>
 
 class DataLoader
 {
 private:
     boost::filesystem::path path_;
     std::ifstream file_;
-    size_t pos_;
-    size_t lenght_;
+    size_t pos_ = 0;
+    size_t lenght_ = 0;
 public:
     DataLoader() = default;
-    DataLoader (const std::string &filename);
+    explicit DataLoader (const std::string &filename);
 
     std::stringstream getContent(const std::string& fileName);
     virtual ~DataLoader()
