@@ -16,7 +16,7 @@ class CSVParser
     std::string getLine();
 
 public:
-    CSVParser(const std::string& filename);
+    explicit CSVParser(const std::string& filename);
 
     MoneyTransfer parse(const std::string &row);
 

@@ -9,18 +9,19 @@
 #include <fstream>
 #include <sstream>
 
+#include "MoneyTransfer.h"
 class DataLoader
 {
 private:
-    boost::filesystem::path path_;
+//    boost::filesystem::path path_;
     std::ifstream file_;
-    size_t pos_ = 0;
-    size_t lenght_ = 0;
+    size_t from_ = 0;
+    size_t to_ = 0;
 public:
     DataLoader() = default;
     explicit DataLoader (const std::string &filename);
 
-    std::stringstream getContent(const std::string& fileName);
+    std::vector<MoneyTransfer> getCurrentTransactions(const std::string& fileName);
     virtual ~DataLoader()
     {
         if (file_.is_open())
