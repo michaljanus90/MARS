@@ -14,7 +14,7 @@ int main()
     DataLoader dataLoader;
     while (true)
     {
-        auto transactions = dataLoader.getCurrentTransactions(path.string());
+        auto transactions = dataLoader.getCurrentTransactions(path);
 
         for (const auto &transaction : transactions)
         {

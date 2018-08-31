@@ -8,23 +8,26 @@
 #include <boost/filesystem.hpp>
 #include <fstream>
 #include <sstream>
-
+#include <ctime>
 #include "MoneyTransfer.h"
+#include <chrono>
+#include <thread>
+
 class DataLoader
 {
 private:
     long from_ = 0;
     long to_ = 0;
-    bool isFileChanged()
-    {
-        return false;
-    }
+    std::time_t lastTime_;
+    std::chrono::seconds sec_;
+
+    bool isFileChanged(const boost::filesystem::path &path);
 
 public:
     DataLoader() = default;
     explicit DataLoader (const std::string &filename);
 
-    std::vector<MoneyTransfer> getCurrentTransactions(const std::string& fileName);
+    std::vector<MoneyTransfer> getCurrentTransactions(const boost::filesystem::path &path);
 };
 
 
