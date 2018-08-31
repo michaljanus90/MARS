@@ -13,20 +13,18 @@
 class DataLoader
 {
 private:
-//    boost::filesystem::path path_;
-    std::ifstream file_;
-    size_t from_ = 0;
-    size_t to_ = 0;
+    long from_ = 0;
+    long to_ = 0;
+    bool isFileChanged()
+    {
+        return false;
+    }
+
 public:
     DataLoader() = default;
     explicit DataLoader (const std::string &filename);
 
     std::vector<MoneyTransfer> getCurrentTransactions(const std::string& fileName);
-    virtual ~DataLoader()
-    {
-        if (file_.is_open())
-            file_.close();
-    }
 };
 
 
