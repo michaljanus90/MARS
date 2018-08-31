@@ -13,7 +13,7 @@ if(Boost_FOUND)
 
     add_executable( MARS
                     main.cpp
-                    MoneyTransfer.cpp DataLoader.cpp DataLoader.h CSVParser.cpp CSVParser.h)
+                    MoneyTransfer.cpp DataLoader.cpp DataLoader.h CSVParser.cpp CSVParser.h IRaport.h RaportManager.cpp RaportManager.h NewTransactionSum.cpp NewTransactionSum.h SumByAccountReport.cpp SumByAccountReport.h)
     target_link_libraries(MARS ${Boost_LIBRARIES})# ${Boost_DATE_TIME_LIBRARY} ${BOOST_FILESYSTEM_LIBRARY})
 endif()
 
