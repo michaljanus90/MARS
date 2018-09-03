@@ -2,13 +2,13 @@
 #include <boost/filesystem.hpp>
 
 
-#include "DataLoader.h"
+#include "src/DataLoader.h"
 #include <thread>
 #include <chrono>
 
-#include "NewTransactionSum.h"
-#include "SumByAccountReport.h"
-#include "RaportManager.h"
+#include "src/NewTransactionSum.h"
+#include "src/SumByAccountReport.h"
+#include "src/RaportManager.h"
 #include <memory>
 int main()
 {
