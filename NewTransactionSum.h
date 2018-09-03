@@ -6,11 +6,12 @@
 #define MARS_NEWTRANSACTIONSUM_H
 
 #include "IRaport.h"
+class MoneyTransfer;
 
 class NewTransactionSum : public IRaport
 {
 public:
-    void genrateReport()  const override;
+    void genrateReport(const std::vector<MoneyTransfer> &allTransfers, const std::vector<MoneyTransfer> &currentTransfers) const override;
 };
 
 

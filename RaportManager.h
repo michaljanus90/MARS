@@ -8,12 +8,14 @@
 #include <vector>
 #include "IRaport.h"
 #include <memory>
+#include "MoneyTransfer.h"
 
 class RaportManager
 {
+    std::vector<MoneyTransfer> transfers;
 public:
     void registerReport(std::unique_ptr<IRaport> report);
-    void exec();
+    void exec(const std::vector<MoneyTransfer> &currentTransfers);
 
 private:
     std::vector<std::unique_ptr<IRaport>> reports;

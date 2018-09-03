@@ -14,7 +14,7 @@
 
 class MoneyTransfer
 {
-private:
+public:
     boost::gregorian::date dateTransaction_;
     std::string time_;
     std::string fromAccount_;

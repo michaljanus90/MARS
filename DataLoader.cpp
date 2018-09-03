@@ -10,7 +10,7 @@
 bool DataLoader::isFileChanged(const boost::filesystem::path &path)
 {
     auto lastWriteTime = boost::filesystem::last_write_time(path);
-    if (lastWriteTime > lastTime_)
+    if (lastWriteTime != lastTime_)
     {
         lastTime_ = lastWriteTime;
         return true;

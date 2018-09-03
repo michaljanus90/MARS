@@ -19,7 +19,7 @@ int main()
     reportManager.registerReport(std::make_unique<NewTransactionSum>());
     reportManager.registerReport(std::make_unique<SumByAccountReport>());
 
-    reportManager.exec();
+
     //
     //
 
@@ -29,12 +29,11 @@ int main()
     DataLoader dataLoader;
     while (true)
     {
-        auto transactions = dataLoader.getCurrentTransactions(path);
+        const auto transactions = dataLoader.getCurrentTransactions(path);
 
-        for (const auto &transaction : transactions)
-        {
-            std::cout << transaction;
-        }
+//        for (const auto& x : transactions)
+//            std::cout << x;
+        reportManager.exec(transactions);
         std::this_thread::sleep_for(std::chrono::seconds(2));
     }
 //    return EXIT_SUCCESS;

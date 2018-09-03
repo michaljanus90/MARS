@@ -5,10 +5,13 @@
 #ifndef MARS_IGENERATOR_H
 #define MARS_IGENERATOR_H
 
+#include <vector>
+
+class MoneyTransfer;
 class IRaport
 {
 public:
-    virtual void genrateReport() const = 0;
+    virtual void genrateReport(const std::vector<MoneyTransfer> &allTransfers, const std::vector<MoneyTransfer> &currentTransfers) const = 0;
     virtual ~IRaport(){}
 };
 
