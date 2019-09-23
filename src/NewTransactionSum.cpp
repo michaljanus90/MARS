@@ -18,10 +18,9 @@ void NewTransactionSum::genrateReport(const std::vector<MoneyTransfer> &allTrans
             sum += trans.amount_;
         }
         sumOfNewTransactions_ = sum;
-        std::cout << "SUM OF NEW TRANSACTIONS: " << sum << std::endl;
-
     }
 }
+
 double NewTransactionSum::getSumOfNewTransactions() const
 {
     return sumOfNewTransactions_;

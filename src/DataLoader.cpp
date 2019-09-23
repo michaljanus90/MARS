@@ -22,7 +22,7 @@ bool DataLoader::isFileChanged(const boost::filesystem::path &path)
 std::vector<MoneyTransfer> DataLoader::getCurrentTransactions(const boost::filesystem::path &path)
 {
     CSVParser parser(path.string());
-    std::vector<MoneyTransfer> transfers;
+    std::vector<MoneyTransfer> transfers = {};
 
     if (isFileChanged(path))
     {

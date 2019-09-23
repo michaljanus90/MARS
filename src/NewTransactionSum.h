@@ -6,6 +6,7 @@
 #define MARS_NEWTRANSACTIONSUM_H
 
 #include "IRaport.h"
+
 class MoneyTransfer;
 
 class NewTransactionSum : public IRaport
@@ -14,6 +15,18 @@ class NewTransactionSum : public IRaport
 public:
     void genrateReport(const std::vector<MoneyTransfer> &allTransfers, const std::vector<MoneyTransfer> &currentTransfers) override;
     double getSumOfNewTransactions() const;
+
+    std::vector<double> getReport()
+    {
+        return {sumOfNewTransactions_};
+    }
+
+    template <typename Writer>
+    void printResult(Writer writer)
+    {
+        std::vector<double> vec{sumOfNewTransactions_};
+        writer.print(vec);
+    };
 };
 
 

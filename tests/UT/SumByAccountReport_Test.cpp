@@ -5,6 +5,7 @@
 #include "gtest/gtest.h"
 #include "SumByAccountReport.h"
 #include "MoneyTransfer.h"
+#include "PresentResultToCmd.h"
 class SumByAccountReportFixure : public ::testing::Test
 {
 public:
@@ -24,6 +25,7 @@ TEST_F(SumByAccountReportFixure, SumByAccountReport_Test1)
     std::vector<MoneyTransfer> vec{moneyTransfer,moneyTransfer2,moneyTransfer,moneyTransfer};
 
     sumByAccountReport_->genrateReport(vec,{});
-
+    PresentResultToCmd writer_;
+    sumByAccountReport_->printResult(writer_);
     EXPECT_EQ(1,2);
 }
