@@ -9,7 +9,9 @@ set(HEADER_FILES
         RaportManager.h
         SumByAccountReport.h
         IPresentReport.h
-        PresentResultToCmd.h)
+        PresentResultToCmd.h
+        Dispatcher.h)
+
 
 set(SOURCE_FILES
         CSVParser.cpp
@@ -18,6 +20,7 @@ set(SOURCE_FILES
         NewTransactionSum.cpp
         RaportManager.cpp
         SumByAccountReport.cpp
+        Dispatcher.cpp
         )
 
 #target_link_libraries(mars ${Boost_LIBRARIES})

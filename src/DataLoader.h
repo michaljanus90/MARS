@@ -21,11 +21,10 @@ private:
     std::time_t lastTime_;
     std::chrono::seconds sec_;
 
-    bool isFileChanged(const boost::filesystem::path &path);
-
 public:
     DataLoader() = default;
     explicit DataLoader (const std::string &filename);
+    bool isFileChanged(const boost::filesystem::path &path);
 
     std::vector<MoneyTransfer> getCurrentTransactions(const boost::filesystem::path &path);
 };

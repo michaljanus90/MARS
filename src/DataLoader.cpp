@@ -24,7 +24,7 @@ std::vector<MoneyTransfer> DataLoader::getCurrentTransactions(const boost::files
     CSVParser parser(path.string());
     std::vector<MoneyTransfer> transfers = {};
 
-    if (isFileChanged(path))
+//    if (isFileChanged(path))
     {
         std::ifstream file_(path.string());
 
