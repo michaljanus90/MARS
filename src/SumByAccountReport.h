@@ -22,7 +22,7 @@ public:
     template <typename Writer>
     void printResult(Writer writer)
     {
-        writer.print(transactionsByAccount.right);
+        writer.print(transactionsByAccount.right, "SumByAccountReport");
     }
 };
 

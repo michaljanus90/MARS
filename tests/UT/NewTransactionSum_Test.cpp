@@ -28,8 +28,8 @@ TEST_F(NewTransactionSumFixture, FirstTest)
     std::vector<MoneyTransfer> vec{moneyTransfer,moneyTransfer,moneyTransfer,moneyTransfer};
     PresentResultToCmd writer_;
 
-    writer_.getData(newTransactionSum_.get());
+//    writer_.getData(newTransactionSum_.get());
     newTransactionSum_->genrateReport(vec,vec);
-//    newTransactionSum_->printResult(writer_);
+    newTransactionSum_->printResult(writer_);
     ASSERT_DOUBLE_EQ(493.8, 123.45*vec.size());
 }

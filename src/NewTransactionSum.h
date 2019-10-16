@@ -25,8 +25,8 @@ public:
     void printResult(Writer writer)
     {
         std::vector<double> vec{sumOfNewTransactions_};
-        writer.print(vec);
-    };
+        writer.print(vec, "NewTransactionSum");
+    }
 };
 
 

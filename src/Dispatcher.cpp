@@ -51,6 +51,7 @@ void Dispatcher::consumeData()
             auto transactions = data_;
             data_.clear();
             raportManager_->exec(transactions);
+            raportManager_->presentReports();
             producerCond_.notify_one();
         }
         else

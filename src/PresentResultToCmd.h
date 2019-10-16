@@ -17,31 +17,22 @@ public:
     }
 
     template <typename T>
-    void print(const std::vector<T>& data)
+    void print(const std::vector<T>& data, const std::string& prefix)
     {
         for(const auto& x : data)
         {
-            std::cout << "XXXXXXXXXXXXXXX   " << x << std::endl;
+            std::cout << "XXXXXXXXXXXXXXX   " <<  prefix << ": " << x << std::endl;
         }
     }
 
     template< typename MapType >
-    void print(const MapType & m)
+    void print(const MapType & m, const std::string& prefix)
     {
-//        typedef typename MapType::const_iterator const_iterator;
-//        for( const_iterator iter = m.begin(), iend = m.end(); iter != iend; ++iter )
         for (const auto& iter : m)
         {
-            std::cout << "%%%%%%%%%%%%   " << iter.second << " : " << iter.first << std::endl;
+            std::cout << "%%%%%%%%%%%%   " << prefix << ": " << iter.second << " : " << iter.first << std::endl;
         }
     }
-
-//    template <typename T>
-//    void print(const T t)
-//    {
-//        std::cout << t << std::endl;
-//    }
-
 };
 
 

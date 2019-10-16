@@ -4,7 +4,6 @@
 
 #include "RaportManager.h"
 #include <thread>
-#include <vector>
 
 void RaportManager::exec(const std::vector<MoneyTransfer> &currentTransfers)
 {
@@ -17,10 +16,10 @@ void RaportManager::exec(const std::vector<MoneyTransfer> &currentTransfers)
     transfers.insert(transfers.end(), currentTransfers.begin(), currentTransfers.end());
 
     std::vector<std::thread> workers;
-    for(const auto& report : reports)
+    for(const auto& report : reports_)
     {
         workers.emplace_back(std::thread([this, &report, &currentTransfers](){
-            report->genrateReport(transfers, currentTransfers);
+            report.second->genrateReport(transfers, currentTransfers);
         }));
     }
 
@@ -30,7 +29,12 @@ void RaportManager::exec(const std::vector<MoneyTransfer> &currentTransfers)
     }
 }
 
-void RaportManager::registerReport(std::unique_ptr<IRaport> report)
+void RaportManager::presentReports() const
 {
-    reports.push_back(std::move(report));
+    for (const auto& report : reports_)
+    {
+        auto it = callable_.find(report.first);
+        if (it != callable_.end())
+            it->second(report.first);
+    }
 }
